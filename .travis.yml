@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+ - "node"
+branches:
+  only:
+    - master
+deploy:
+  on:
+    branch: master
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  bucket: "formal.chisigma.co"
+  skip_cleanup: true
+  region: "us-east-1"
+  acl: public_read
